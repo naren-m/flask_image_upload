@@ -1,14 +1,14 @@
 from flask import Flask, render_template, Response, jsonify, request
 from flask.ext.api import status
 from werkzeug import secure_filename
-import os
 from flask_restful import reqparse, abort, Api, Resource
 
+import os
 
-from flask import jsonify
 app = Flask(__name__)
 # parser.add_argument('task', type=str)
 
+@app.route('/')
 @app.route('/hello/')
 @app.route('/hello/<name>')
 def hello(name=None):
@@ -53,7 +53,7 @@ def upload():
         return resp 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
 
 
 

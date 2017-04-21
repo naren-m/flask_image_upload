@@ -10,6 +10,12 @@ curl -F "filecomment=This is an image file" \
      localhost:5000/upload
 ```
 
+## Start docker with code mounted
+
+```sh
+docker run -d --name flask -p 5000:5000 -v $PWD:/webapp narenm/flask:py3
+```
+
 ## Reference
 
 - [Camera with Rest Interface](http://blog.cudmore.io/post/2015/12/06/camera-with-a-rest-interface/)
