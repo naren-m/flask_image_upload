@@ -1,13 +1,19 @@
 # flask_image_upload
 
-Example on how to use flask to pass image as rest servicce
+Example on how to use flask to pass image as rest service
 
-## Curl command to test this
+## Curl command sending image as payload
 
 ```sh
 curl -F "filecomment=This is an image file" \
      -F "image=@newimage.jpg" \
      localhost:5000/upload
+```
+
+## Curl command to send json payload
+
+```sh
+curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz","password":"xyz"}' http://localhost:5000/post
 ```
 
 ## Start docker with code mounted
