@@ -2,3 +2,4 @@
 .vscode
 *.jpg
 .bash_history
+uploads/*
