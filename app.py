@@ -1,7 +1,6 @@
 from flask import Flask, render_template, Response, jsonify, request
 from flask.ext.api import status
 from werkzeug import secure_filename
-from flask_restful import reqparse, abort, Api, Resource
 
 import os
 
@@ -23,7 +22,7 @@ app.config['UPLOAD_FOLDER'] = 'uploads/'
 resp = {'response': None, "imagePath": None}
 
 @app.route('/upload', methods=['POST'])
-def upload():
+def upload_file():
     content = {'filename': None}
     if request.method == 'POST' and 'image' in request.files:
         # Get the name of the uploaded file
@@ -47,9 +46,13 @@ def upload():
         resp['imagePath'] = None
         return resp 
 
+@app.route('/post', methods = ['POST'])
+def post():
+    # Get the parsed contents of the form data
+    json = request.json
+    print(json)
+    # Render template
+    return jsonify(json)
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
-
-
-
-
