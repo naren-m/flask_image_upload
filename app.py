@@ -37,7 +37,7 @@ def upload_file():
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             f.save(path)
             # Redirect the user to the uploaded_file route, which
-            # will basicaly show on the browser the uploaded file
+            # will basically show on the browser the uploaded file
             resp['response'] = status.HTTP_200_OK
             resp['imagePath'] = filename
             return jsonify(resp) 
